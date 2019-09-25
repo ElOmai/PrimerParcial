@@ -59,6 +59,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{b72c7183-736a-433f-aaef-cbaaa9b685f6}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{7b35545f-78e0-4c35-a81e-318c8bf4deea}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
