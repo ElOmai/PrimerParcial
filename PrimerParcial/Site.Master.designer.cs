@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrimerParcialAp2 {
+namespace PrimerParcial {
     
     
     public partial class Site {

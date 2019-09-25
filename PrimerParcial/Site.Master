@@ -2,7 +2,7 @@
     Language="C#"
     AutoEventWireup="true"
     CodeBehind="Site.master.cs"
-    Inherits="PrimerParcialAp2.Site" %>
+    Inherits="PrimerParcial.Site" %>
 
 <!DOCTYPE html>
 
@@ -14,7 +14,7 @@
     <script type="text/javascript" src="/Scripts/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/Scripts/popper.min.js"></script>
     <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
-    <title><%:Page.Title %> PrimerParcialAp2</title>
+    <title><%:Page.Title %> PrimerParcial</title>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -23,7 +23,7 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" runat="server" href="~/">PrimerParcialAp2</a>
+                <a class="navbar-brand" runat="server" href="~/">PrimerParcial</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -60,7 +60,7 @@
         </div>
         <hr />
         <footer>
-            <p>&copy; <%: DateTime.Now.Year %> - PrimerParcialAp2</p>
+            <p>&copy; <%: DateTime.Now.Year %> - PrimerParcial</p>
         </footer>
     </form>
 </body>
