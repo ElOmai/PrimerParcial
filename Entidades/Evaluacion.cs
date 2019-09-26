@@ -16,6 +16,6 @@ namespace Entidades
         public string Categoria { get; set; }
         public  decimal Valor { get; set; }
         public decimal Logrado { get; set; }
-        public decimal Perdido { get; set; }
+        public virtual List<Evaluacion> Detalle { get; set; }
     }
 }

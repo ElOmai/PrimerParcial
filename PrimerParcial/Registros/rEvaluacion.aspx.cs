@@ -23,6 +23,8 @@ namespace PrimerParcial.Registros
                         FechaTextBox.Text = DateTime.Now.ToString("dd-mm-yyyy");
                         RepositorioBase<Evaluacion> repositorio = new RepositorioBase<Evaluacion>();
                         var registro = repositorio.Buscar(id);
+                        ViewState["Evaluacion"] = new Evaluacion();
+                        BindGrid();
 
                         if (registro == null)
                         {
@@ -31,13 +33,38 @@ namespace PrimerParcial.Registros
                         else
                         {
                             LlenaCampos(registro);
+                           
                         }
                     }
                 }
             }
         }
 
+        protected void BindGrid()
+        {
+            if (ViewState["Evaluacion"] != null)
+            {
+                DetalleGridView.DataSource = ((Evaluacion)ViewState["Evaluacion"]).Detalle;
+                DetalleGridView.DataBind();
+            }
+        }
 
+        protected void Grid_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Evaluacion Evaluacion = new Evaluacion();
+
+            Evaluacion = (Evaluacion)ViewState["Evaluacion"];
+
+            ViewState["Detalle"] = Evaluacion.Detalle;
+
+            int Fila = e.RowIndex;
+
+            Evaluacion.Detalle.RemoveAt(Fila);
+
+            this.BindGrid();
+
+           TotalTextBox.Text = string.Empty;
+        }
 
         protected void Limpiar()
         {
@@ -46,7 +73,7 @@ namespace PrimerParcial.Registros
             CategoriaTextBox.Text = string.Empty;
             ValorTextBox.Text = string.Empty;
             LogradoTextBox.Text = string.Empty;
-            PerdidoTextBox.Text = string.Empty;
+            
         }
 
         protected void NuevoButton_Click(object sender, EventArgs e)
@@ -83,7 +110,7 @@ namespace PrimerParcial.Registros
             return (Evaluacion != null);
         }
 
-        protected void GuardarButton_Click1(object sender, EventArgs e)
+        protected void GuardarButton_Click(object sender, EventArgs e)
         {
             RepositorioBase<Evaluacion> Repositorio = new RepositorioBase<Evaluacion>();
             Evaluacion Evaluacion = new Evaluacion();
@@ -138,7 +165,7 @@ namespace PrimerParcial.Registros
             }
         }
 
-        protected void EliminarButton_Click1(object sender, EventArgs e)
+        protected void EliminarButton_Click(object sender, EventArgs e)
         {
             if (Utils.ToInt(IDTextBox.Text) > 0)
             {
